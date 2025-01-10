@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\StrukturResource\Pages;
+namespace App\Filament\Resources\AlumniResource\Pages;
 
-use App\Filament\Resources\StrukturResource;
+use App\Filament\Resources\AlumniResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-class EditStruktur extends EditRecord
+class EditAlumni extends EditRecord
 {
-    protected static string $resource = StrukturResource::class;
+    protected static string $resource = AlumniResource::class;
 
     protected function getHeaderActions(): array
     {

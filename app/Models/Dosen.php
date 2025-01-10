@@ -5,20 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Struktur extends Model
+class Dosen extends Model
 {
     use HasFactory;
 
-    protected $table = 'struktur';
+    protected $table = 'dosen';
 
     protected $fillable = [
-        'jurusan_id',
         'nama',
-        'posisi'
+        'jabatan',
+        'email',
+        'linkedin',
+        'google_scholar',
+        'foto',
     ];
-
-    public function jurusan()
-    {
-        return $this->belongsTo(Jurusan::class);
-    }
 }

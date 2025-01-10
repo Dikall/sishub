@@ -11,16 +11,13 @@ class Jurusan extends Model
 
     protected $table = 'jurusan';
 
+    // Kolom yang dapat diisi melalui mass assignment
     protected $fillable = [
         'nama_jurusan',
         'deskripsi',
         'visi',
         'misi',
-        'tujuan'
+        'tujuan',
+        'foto', // Pastikan menambahkan kolom foto di sini
     ];
-
-    public function strukturOrganisasi()
-    {
-        return $this->hasMany(StrukturOrganisasi::class);
-    }
 }

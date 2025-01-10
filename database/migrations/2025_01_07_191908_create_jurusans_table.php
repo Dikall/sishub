@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('visi'); 
             $table->text('misi'); 
             $table->text('tujuan'); 
+            $table->string('foto')->nullable(); // Kolom untuk foto
             $table->timestamps();
         });
     }

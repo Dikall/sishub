@@ -6,13 +6,12 @@ use App\Filament\Resources\JurusanResource\Pages;
 use App\Filament\Resources\JurusanResource\RelationManagers;
 use App\Models\Jurusan;
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Columns\ImageColumn;
 
 class JurusanResource extends Resource
 {
@@ -33,7 +32,12 @@ class JurusanResource extends Resource
                 Forms\Components\Textarea::make('misi') 
                     ->required(), 
                 Forms\Components\Textarea::make('tujuan') 
-                    ->required(), 
+                    ->required(),
+                Forms\Components\FileUpload::make('foto')
+                    ->image() // Memastikan hanya file gambar yang bisa diunggah
+                    ->directory('jurusan_fotos') // Folder penyimpanan dalam storage
+                    ->maxSize(2048) // Ukuran maksimum file (KB)
+                    ->required(false), // Tidak wajib diisi
             ]);
     }
 
@@ -46,25 +50,24 @@ class JurusanResource extends Resource
                 TextColumn::make('visi'), 
                 TextColumn::make('misi'), 
                 TextColumn::make('tujuan'), 
+                ImageColumn::make('foto') // Menampilkan foto di tabel
+                    ->circular() // Menampilkan gambar berbentuk lingkaran
+                    ->height(50) // Tinggi gambar dalam tabel
+                    ->width(50), // Lebar gambar dalam tabel
             ])
-            ->filters([
-                //
-            ])
+            ->filters([])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
 
     public static function getRelations(): array
     {
-        return [
-            //
-        ];
+        return [];
     }
 
     public static function getPages(): array
