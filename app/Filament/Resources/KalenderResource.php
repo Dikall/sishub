@@ -18,6 +18,7 @@ class KalenderResource extends Resource
 {
     protected static ?string $model = Kalender::class;
 
+    protected static ?string $navigationLabel = 'Kegiatan';
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form

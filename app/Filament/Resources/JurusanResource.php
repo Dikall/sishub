@@ -17,6 +17,7 @@ class JurusanResource extends Resource
 {
     protected static ?string $model = Jurusan::class;
 
+    protected static ?string $navigationLabel = 'Jurusan';
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
