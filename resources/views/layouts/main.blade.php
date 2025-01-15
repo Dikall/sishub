@@ -33,7 +33,7 @@
         <x-header>
         </x-header>
         <div class="flex flex-col items-center justify-center h-full">
-          a
+          {{ $slot }}
         </div>
         <x-nav-bar>
         </x-nav-bar>
