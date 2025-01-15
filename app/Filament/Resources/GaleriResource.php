@@ -30,9 +30,16 @@ class GaleriResource extends Resource
             Forms\Components\FileUpload::make('file')
                 ->required()
                 ->label('File')
+                ->directory('posts/images')
                 ->image()
                 ->maxSize(10000) // Ukuran maksimum dalam KB (10MB)
-                ->nullable(),
+                ->nullable()
+                ->rules(['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'])
+                ->afterStateUpdated(function ($state, $set, $record) {
+                    if ($record) {
+                        $record->addMedia($state)->toMediaCollection('images');
+                    }
+                }),
             Forms\Components\Select::make('tipe')
                 ->options([
                     'Foto' => 'Foto',
@@ -49,10 +56,9 @@ class GaleriResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('judul'),
                 Tables\Columns\TextColumn::make('tipe'),
-                ImageColumn::make('file') // Menampilkan foto di tabel
-                    ->circular() // Menampilkan gambar berbentuk lingkaran
-                    ->height(50) // Tinggi gambar dalam tabel
-                    ->width(50), // Lebar gambar dalam tabel
+                ImageColumn::make('media.file.first.url') // Display the first image in the collection
+                ->label('Image')
+                ->size(50),
             ])
             ->filters([
                 //
