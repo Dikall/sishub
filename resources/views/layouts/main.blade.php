@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <!-- Styles / Scripts -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -21,6 +21,7 @@
             extend: {
               fontFamily: {
                 audiowide: ['Audiowide', 'sans-serif'], // Define the Audiowide font
+                poppins: ['Poppins', 'sans-serif']
               },
             },
           },
@@ -30,13 +31,14 @@
 </head>
 <body>
     <div class="flex flex-col items-center justify-center h-screen min-w-screen overflow-hidden">
-        <x-header>
-        </x-header>
-        <div class="flex flex-col items-center justify-center h-full">
+        <x-header />
+        <div class="flex flex-col items-center justify-center h-full w-screen">
           {{ $slot }}
         </div>
-        <x-nav-bar>
+        <x-nav-bar class="z-90 bottom-0">
         </x-nav-bar>
     </div>
+    <script src="{{ asset('js/app.js') }}" ></script>
+    @stack('scripts')
 </body>
 </html>

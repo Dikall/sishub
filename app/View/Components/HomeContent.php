@@ -37,7 +37,8 @@ class HomeContent extends Component
     {
         return view('components.home-content', [
             'photos' => $this->photos,
-            'videos' => $this->videos
+            'videos' => $this->videos,
+            'activeIndex' => 0 // Start with the first image as active
         ]);
     }
 }
