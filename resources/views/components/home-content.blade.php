@@ -23,7 +23,7 @@
             @endforeach
         </div>
     </div>
-    <div class="absolute left-4 bottom-0 flex flex-row gap-4 transform -translate-y-1/2 z-50">
+    <div class="absolute left-6 bottom-0 flex flex-row gap-4 transform -translate-y-1/2 z-50">
         <button 
             id="prev" 
             class="bg-white/70 hover:bg-white/50 text-black hover:text-slate-500 px-4 py-2 rounded-3xl z-20 backdrop-blur-md border border-slate-200 transition-colors"
