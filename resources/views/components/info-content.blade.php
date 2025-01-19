@@ -1,5 +1,5 @@
 <div class="relative w-full h-full z-100">
-    <div class="absolute left-6 bottom-0 flex flex-row gap-4 transform -translate-y-1/2 z-50">
+    <div class="absolute left-4 bottom-0 flex flex-row gap-4 transform -translate-y-1/2 z-50">
         <button 
             id="prev" 
             class="bg-white/70 hover:bg-white/50 text-black hover:text-slate-500 px-4 py-2 rounded-3xl z-20 backdrop-blur-md border border-slate-200 transition-colors"
@@ -67,8 +67,6 @@
             <div class="carousel-item w-screen flex-shrink-0 flex flex-col px-6 mx-auto">
                 <div class="w-full p-6 bg-white/70 backdrop-blur-md rounded-3xl border border-slate-200">
                     <h2 class="font-poppins text-slate-800 text-2xl font-bold mb-2 text-center">
-                <div class="w-full p-6 bg-white/20 backdrop-blur-sm rounded-3xl border border-slate-200">
-                    <h2 class="font-poppins text-slate-800 text-2xl font-bold mb-2">
                         Dosen Sistem Informasi
                     </h2>
                     <!-- Content -->
@@ -112,8 +110,6 @@
             <div class="carousel-item w-screen flex-shrink-0 flex flex-col px-6 mx-auto">
                 <div class="w-full p-6 bg-white/70 backdrop-blur-md rounded-3xl border border-slate-200">
                     <h2 class="font-poppins text-slate-800 text-2xl font-bold mb-2 text-center">
-                <div class="w-full p-6 bg-white/20 backdrop-blur-sm rounded-3xl border border-slate-200">
-                    <h2 class="font-poppins text-slate-800 text-2xl font-bold mb-2">
                         Tenaga Akademik Sistem Informasi
                     </h2>
                     <!-- Content -->
@@ -324,64 +320,28 @@ document.addEventListener("DOMContentLoaded", function () {
     const verticalCarousel = document.querySelector('.vertical-carousel');
     const carouselInner = document.querySelector('.carousel-inner');
 
-    // Function to toggle sections with transitions
+    // Function to toggle sections
     function toggleSections(showInformasi) {
-        // First, set up the transitions for both elements
-        informasiJurusan.style.transition = 'opacity 0.3s ease-in-out, transform 0.3s ease-in-out';
-        verticalCarousel.style.transition = 'opacity 0.3s ease-in-out, transform 0.3s ease-in-out';
-
         if (showInformasi) {
-            // Fade out carousel first
-            verticalCarousel.style.opacity = '0';
-            verticalCarousel.style.transform = 'translateX(20px)';
+            // Show Informasi Jurusan, hide carousel
+            informasiJurusan.classList.remove('hidden');
+            verticalCarousel.classList.add('hidden');
             
-            // After a short delay, hide carousel and show informasi
-            setTimeout(() => {
-                verticalCarousel.classList.add('hidden');
-                informasiJurusan.classList.remove('hidden');
-                
-                // Force a reflow to ensure the transition works
-                informasiJurusan.offsetHeight;
-                
-                // Fade in informasi
-                informasiJurusan.style.opacity = '1';
-                informasiJurusan.style.transform = 'translateX(0)';
-            }, 300);
-
-            // Update button states with transitions
-            prevButton.style.transition = 'all 0.3s ease-in-out';
-            nextButton.style.transition = 'all 0.3s ease-in-out';
-            
+            // Update button states
             prevButton.classList.add('bg-white/50', 'text-slate-500');
             prevButton.classList.remove('bg-white/70', 'text-black');
             nextButton.classList.remove('bg-white/50', 'text-slate-500');
             nextButton.classList.add('bg-white/70', 'text-black');
         } else {
-            // Fade out informasi first
-            informasiJurusan.style.opacity = '0';
-            informasiJurusan.style.transform = 'translateX(-20px)';
+            // Show carousel, hide Informasi Jurusan
+            informasiJurusan.classList.add('hidden');
+            verticalCarousel.classList.remove('hidden');
             
-            // After a short delay, hide informasi and show carousel
-            setTimeout(() => {
-                informasiJurusan.classList.add('hidden');
-                verticalCarousel.classList.remove('hidden');
-                
-                // Force a reflow to ensure the transition works
-                verticalCarousel.offsetHeight;
-                
-                // Fade in carousel
-                verticalCarousel.style.opacity = '1';
-                verticalCarousel.style.transform = 'translateX(0)';
-            }, 300);
-
-            // Reset carousel position
+            // Reset carousel to first item
             currentIndex = 0;
             carouselInner.style.transform = 'translateY(0)';
-
-            // Update button states with transitions
-            prevButton.style.transition = 'all 0.3s ease-in-out';
-            nextButton.style.transition = 'all 0.3s ease-in-out';
             
+            // Update button states
             prevButton.classList.remove('bg-white/50', 'text-slate-500');
             prevButton.classList.add('bg-white/70', 'text-black');
             nextButton.classList.add('bg-white/50', 'text-slate-500');
@@ -393,11 +353,7 @@ document.addEventListener("DOMContentLoaded", function () {
     prevButton.addEventListener('click', () => toggleSections(true));
     nextButton.addEventListener('click', () => toggleSections(false));
 
-    // Initialize the view and set initial styles
-    informasiJurusan.style.opacity = '0';
-    informasiJurusan.style.transform = 'translateX(-20px)';
-    verticalCarousel.style.opacity = '1';
-    verticalCarousel.style.transform = 'translateX(0)';
+    // Initialize the view (optional: start with carousel visible)
     toggleSections(false);
 });
 
@@ -421,23 +377,6 @@ document.addEventListener("DOMContentLoaded", function () {
         max-height: 800px;
         display: flex;
         align-items: center;
-    }
-    .vertical-carousel, #informasi-jurusan {
-        opacity: 1;
-        transform: translateX(0);
-    }
-
-    #informasi-jurusan:not(.hidden) {
-        display: block;
-    }
-
-    /* Add smooth transitions to buttons */
-    #prev, #next {
-        transition: all 0.3s ease-in-out;
-    }
-
-    /* Ensure hidden elements don't interfere with transitions */
-    .hidden {
-        display: none !important;
+        gap: 1rem;
     }
 </style>
