@@ -1,7 +1,7 @@
 {{-- resources/views/components/nav-bar.blade.php --}}
 <div class="relative">
     <!-- Toggle Button -->
-    <button id="navbar-toggle" class="w-64 py-2 rounded-2xl bg-white/70 backdrop-blur-md text-slate-800 border border-slate-200 font-poppins text-sm flex flex-row gap-1 items-center justify-center mb-2 ml-6">
+    <button id="navbar-toggle" class="w-64 py-2 rounded-2xl bg-white/20 backdrop-blur-sm text-slate-800 border border-slate-200 font-poppins text-sm flex flex-row gap-1 items-center justify-center mb-2 ml-6">
         <svg id="toggle-icon" class="w-6 h-6 text-gray-800 transform transition-transform duration-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 7 4 4 4-4m-8 6 4 4 4-4"/>
         </svg>
@@ -12,28 +12,28 @@
     <div id="nav-content" class="transition-all duration-300 ease-in-out overflow-hidden w-screen">
         <div class="flex flex-row px-6 my-4 w-full h-1/2 gap-4">
             <!-- Navigation Bar -->
-            <div class="flex flex-col justify-between items-center rounded-3xl bg-white/20 border backdrop-blur-md border-slate-200 h-full w-64 px-2 py-2 gap-2">
-                <a href="/home" class="w-full justify-center items-center">
+            <div class="flex flex-col justify-between items-center rounded-3xl bg-white/20 border backdrop-blur-sm border-slate-200 h-full w-64 px-2 py-2 gap-2">
+                <a href="/beranda" class="w-full justify-center items-center">
                     <div class="cursor-pointer w-full py-2 rounded-2xl bg-slate-800 text-white font-poppins text-sm text-center">
                         Beranda
                     </div>
                 </a>
-                <a href="/information" class="w-full justify-center items-center">
+                <a href="/informasi-jurusan" class="w-full justify-center items-center">
                     <div class="cursor-pointer w-full py-2 rounded-2xl bg-slate-800 text-white font-poppins text-sm text-center">
                         Informasi Jurusan
                     </div>
                 </a>
-                <a href="/news" class="w-full justify-center items-center">
+                <a href="/hmsi" class="w-full justify-center items-center">
                     <div class="cursor-pointer w-full py-2 rounded-2xl bg-slate-800 text-white font-poppins text-sm text-center">
-                        Berita & Pengumuman
+                        HMSI
                     </div>
                 </a>
-                <a href="/calendar" class="w-full justify-center items-center">
+                <a href="/kalender" class="w-full justify-center items-center">
                     <div class="cursor-pointer w-full py-2 rounded-2xl bg-slate-800 text-white font-poppins text-sm text-center">
-                        Kalender Akademik
+                        Kalender Kegiatan
                     </div>
                 </a>
-                <a href="/subject" class="w-full justify-center items-center">
+                <a href="/mata-kuliah" class="w-full justify-center items-center">
                     <div class="cursor-pointer w-full py-2 rounded-2xl bg-slate-800 text-white font-poppins text-sm text-center">
                         Mata Kuliah
                     </div>
@@ -46,7 +46,7 @@
             </div>
 
             <!-- Scrollable Content -->
-            <div class="flex flex-col justify-between items-center rounded-3xl bg-white/20 border backdrop-blur-md border-slate-200 h-64 w-full px-2 py-2 gap-2">
+            <div class="flex flex-col justify-between items-center rounded-3xl bg-white/20 border backdrop-blur-sm border-slate-200 h-64 w-full px-2 py-2 gap-2">
                 {{ $slot ?? '' }}
             </div>
         </div>

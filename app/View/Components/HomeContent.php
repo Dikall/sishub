@@ -23,11 +23,6 @@ class HomeContent extends Component
             ->take(6)
             ->get();
 
-        // Fetch latest 6 videos
-        $this->videos = Galeri::ofType('Video')
-            ->latest()
-            ->take(6)
-            ->get();
     }
 
     /**

@@ -13,3 +13,7 @@ Route::get('/main', function () {
 Route::get('/beranda', function () {
     return view('home');
 });
+
+Route::get('/informasi-jurusan', function () {
+    return view('information');
+});

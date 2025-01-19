@@ -10,7 +10,6 @@
                 class="absolute w-auto h-full transition-all duration-500 ease-in-out p-8"
                 style="
                     transform: translateX(calc({{ $index - $activeIndex }} * 90%)) scale({{ $index === $activeIndex ? 1 : 0.8 }});
-                    opacity: {{ $index === $activeIndex ? '1' : '0.5' }};
                     z-index: {{ $index === $activeIndex ? '10' : '5' }};
                 "
             >
@@ -63,7 +62,6 @@
                 const offset = index - activeIndex;
                 const scale = index === activeIndex ? 1 : 0.8;
                 image.style.transform = `translateX(calc(${offset} * 500px)) scale(${scale})`;
-                image.style.opacity = index === activeIndex ? '1' : '0.5';
                 image.style.zIndex = index === activeIndex ? '10' : '5';
             });
         }

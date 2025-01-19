@@ -28,11 +28,11 @@ class JurusanResource extends Resource
                     ->required(),
                 Forms\Components\Textarea::make('deskripsi') 
                     ->required(), 
-                Forms\Components\Textarea::make('visi') 
+                Forms\Components\RichEditor::make('visi') 
                     ->required(), 
-                Forms\Components\Textarea::make('misi') 
+                Forms\Components\RichEditor::make('misi') 
                     ->required(), 
-                Forms\Components\Textarea::make('tujuan') 
+                Forms\Components\RichEditor::make('tujuan') 
                     ->required(),
                 Forms\Components\FileUpload::make('foto')
                     ->image() // Memastikan hanya file gambar yang bisa diunggah

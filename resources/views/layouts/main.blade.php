@@ -23,6 +23,9 @@
                 audiowide: ['Audiowide', 'sans-serif'], // Define the Audiowide font
                 poppins: ['Poppins', 'sans-serif']
               },
+              backgroundImage: {
+                'mibar': "url('/storage/bg.jpg')",
+              },
             },
           },
         };
@@ -30,9 +33,10 @@
 
 </head>
 <body>
+    <video src="/storage/video-bg.mp4" autoplay muted loop class="fixed top-0 left-0 min-w-full min-h-full z-0"></video>
     <div class="flex flex-col items-center justify-center h-screen min-w-screen overflow-hidden">
         <x-header />
-        <div class="flex flex-col items-center justify-center h-full w-screen">
+        <div class="flex flex-col items-center justify-center h-full w-screen z-0">
           {{ $slot }}
         </div>
         <x-nav-bar class="z-90 bottom-0">
