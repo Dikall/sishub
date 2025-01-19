@@ -7,11 +7,13 @@ use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 use App\Models\Jurusan;
 use App\Models\Dosen;
+use App\Models\Tendik;
 
 class InfoContent extends Component
 {
     public $jurusan;
     public $dosen;
+    public $tendik;
 
     /**
      * Create a new component instance.
@@ -23,6 +25,8 @@ class InfoContent extends Component
 
         // Fetch all Dosen records or apply filters as needed
         $this->dosen = Dosen::all();
+
+        $this->tendik = Tendik::all();
     }
 
     /**
@@ -33,6 +37,7 @@ class InfoContent extends Component
         return view('components.info-content', [
             'jurusan' => $this->jurusan,
             'dosen' => $this->dosen,
+            'tendik' => $this->tendik,
         ]);
     }
 }

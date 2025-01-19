@@ -40,6 +40,9 @@ class GaleriResource extends Resource
                         $record->addMedia($state)->toMediaCollection('images');
                     }
                 }),
+            Forms\Components\TextInput::make('caption')
+                ->required()
+                ->label('Caption'),
             Forms\Components\Select::make('tipe')
                 ->options([
                     'Foto' => 'Foto',
@@ -56,6 +59,7 @@ class GaleriResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('judul'),
                 Tables\Columns\TextColumn::make('tipe'),
+                Tables\Columns\TextColumn::make('caption'),
                 ImageColumn::make('media.file.first.url') // Display the first image in the collection
                 ->label('Image')
                 ->size(50),

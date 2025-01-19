@@ -17,6 +17,7 @@ class Galeri extends Model
     protected $fillable = [
         'judul',
         'file',
+        'caption',
         'tipe',
     ];
     // You can define custom media collections if needed

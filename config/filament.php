@@ -92,5 +92,8 @@ return [
         \App\Http\Middleware\IsAdmin::class, // Middleware untuk admin
     ],
 
+    'layout' => [
+        'view' => 'vendor.filament.components.layouts.app',
+    ],
 
 ];

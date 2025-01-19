@@ -66,7 +66,7 @@
             <!-- Dosen Sistem Informasi Section -->
             <div class="carousel-item w-screen flex-shrink-0 flex flex-col px-6 mx-auto">
                 <div class="w-full p-6 bg-white/70 backdrop-blur-md rounded-3xl border border-slate-200">
-                    <h2 class="font-poppins text-slate-800 text-2xl font-bold mb-2">
+                    <h2 class="font-poppins text-slate-800 text-2xl font-bold mb-2 text-center">
                         Dosen Sistem Informasi
                     </h2>
                     <!-- Content -->
@@ -109,14 +109,14 @@
             <!-- Tenaga Akademik Sistem Informasi Section -->
             <div class="carousel-item w-screen flex-shrink-0 flex flex-col px-6 mx-auto">
                 <div class="w-full p-6 bg-white/70 backdrop-blur-md rounded-3xl border border-slate-200">
-                    <h2 class="font-poppins text-slate-800 text-2xl font-bold mb-2">
+                    <h2 class="font-poppins text-slate-800 text-2xl font-bold mb-2 text-center">
                         Tenaga Akademik Sistem Informasi
                     </h2>
                     <!-- Content -->
-                    <div class="flex flex-row gap-4">
-                        @if ($dosen->isNotEmpty())
-                            @foreach ($dosen as $lecturer)
-                                <div class="w-full bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition duration-300">
+                    <div class="flex flex-row gap-4 justify-center">
+                        @if ($tendik->isNotEmpty())
+                            @foreach ($tendik as $lecturer)
+                                <div class="w-60 bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition duration-300">
                                     <div class="relative h-48 bg-gradient-to-br from-blue-500 to-indigo-600">
                                         @if ($lecturer->foto)
                                             <img src="{{ asset('storage/' . $lecturer->foto) }}" 
@@ -368,6 +368,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .carousel-inner {
         display: flex;
         flex-direction: column;
+        gap: -5rem;
     }
 
     .carousel-item {
@@ -376,5 +377,6 @@ document.addEventListener("DOMContentLoaded", function () {
         max-height: 800px;
         display: flex;
         align-items: center;
+        gap: 1rem;
     }
 </style>

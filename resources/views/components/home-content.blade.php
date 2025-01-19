@@ -56,7 +56,10 @@
         let currentX = 0;
         let isDragging = false;
         const minSwipeDistance = 50;
-        
+
+        // Auto slide interval ID
+        let autoSlideInterval;
+
         function updateCarousel() {
             images.forEach((image, index) => {
                 const offset = index - activeIndex;
@@ -76,6 +79,16 @@
             updateCarousel();
         }
 
+        // Restart the auto-slide timer
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(next, 8000); // Change slide every 5 seconds
+        }
+
         // Touch event handlers
         function handleTouchStart(event) {
             startX = event.touches[0].clientX;
@@ -89,6 +102,7 @@
         function handleTouchEnd(event) {
             const endX = event.changedTouches[0].clientX;
             handleSwipe(endX - startX);
+            resetAutoSlide();
         }
 
         // Pointer event handlers
@@ -96,6 +110,7 @@
             isDragging = true;
             startX = event.clientX;
             container.setPointerCapture(event.pointerId);
+            clearInterval(autoSlideInterval); // Pause auto-slide while dragging
         }
 
         function handlePointerMove(event) {
@@ -109,6 +124,7 @@
             isDragging = false;
             container.releasePointerCapture(event.pointerId);
             handleSwipe(event.clientX - startX);
+            resetAutoSlide(); // Resume auto-slide after dragging
         }
 
         function handlePointerCancel(event) {
@@ -139,10 +155,18 @@
         container.addEventListener('pointercancel', handlePointerCancel);
 
         // Keep existing button listeners
-        document.getElementById('next').addEventListener('click', next);
-        document.getElementById('prev').addEventListener('click', prev);
+        document.getElementById('next').addEventListener('click', () => {
+            next();
+            resetAutoSlide();
+        });
+        document.getElementById('prev').addEventListener('click', () => {
+            prev();
+            resetAutoSlide();
+        });
 
+        // Initialize the carousel and auto-slide
         updateCarousel();
+        startAutoSlide();
     });
 </script>
 @endpush
