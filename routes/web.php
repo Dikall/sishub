@@ -17,3 +17,7 @@ Route::get('/beranda', function () {
 Route::get('/informasi-jurusan', function () {
     return view('information');
 });
+
+Route::get('/kalender-kegiatan', function () {
+    return view('calendar');
+});

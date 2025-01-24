@@ -1,5 +1,5 @@
 {{-- resources/views/components/nav-bar.blade.php --}}
-<div class="relative">
+<div class="sticky bottom-0">
     <!-- Toggle Button -->
     <button id="navbar-toggle" class="w-64 py-2 rounded-2xl bg-white/20 backdrop-blur-sm text-slate-800 border border-slate-200 font-poppins text-sm flex flex-row gap-1 items-center justify-center mb-2 ml-6">
         <svg id="toggle-icon" class="w-6 h-6 text-gray-800 transform transition-transform duration-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -28,7 +28,7 @@
                         HMSI
                     </div>
                 </a>
-                <a href="/kalender" class="w-full justify-center items-center">
+                <a href="/kalender-kegiatan" class="w-full justify-center items-center">
                     <div class="cursor-pointer w-full py-2 rounded-2xl bg-slate-800 text-white font-poppins text-sm text-center">
                         Kalender Kegiatan
                     </div>
