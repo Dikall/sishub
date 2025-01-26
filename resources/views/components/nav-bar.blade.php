@@ -25,7 +25,7 @@
                 </a>
                 <a href="/hmsi" class="w-full justify-center items-center">
                     <div class="cursor-pointer w-full py-2 rounded-2xl bg-slate-800 text-white font-poppins text-sm text-center">
-                        HMSI
+                        Organisasi Mahasiswa
                     </div>
                 </a>
                 <a href="/kalender-kegiatan" class="w-full justify-center items-center">
@@ -38,7 +38,7 @@
                         Mata Kuliah
                     </div>
                 </a>
-                <a href="/alumni" class="w-full justify-center items-center">
+                <a href="/alumni-kita" class="w-full justify-center items-center">
                     <div class="cursor-pointer w-full py-2 rounded-2xl bg-slate-800 text-white font-poppins text-sm text-center">
                         Alumni
                     </div>
@@ -46,8 +46,20 @@
             </div>
 
             <!-- Scrollable Content -->
-            <div class="flex flex-col justify-between items-center rounded-3xl bg-white/20 border backdrop-blur-sm border-slate-200 h-64 w-full px-2 py-2 gap-2">
-                {{ $slot ?? '' }}
+            <div class="flex justify-end w-full p-4">
+                <div class="flex flex-col justify-start items-center w-full bg-white/20 rounded-3xl border backdrop-blur-sm border-slate-200 p-4 gap-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full">
+                        @foreach ($qrCodes as $qr)
+                            <div class="flex flex-col justify-between items-center rounded-3xl bg-white/20 border backdrop-blur-sm border-slate-200 h-64 w-full px-4 py-4 gap-4">
+                                <h1 class="text-xl font-semibold text-slate-800 text-center">{{ $qr->judul }}</h1>
+                                <div class="my-2 text-center">
+                                    {!! $qr->qrCode !!}
+                                </div>
+                                <p class="text-slate-600 text-center">{{ $qr->detail }}</p>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
             </div>
         </div>
     </div>

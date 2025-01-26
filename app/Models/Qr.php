@@ -4,18 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
 
 class Qr extends Model
 {
     use HasFactory;
 
+    // Menentukan nama tabel jika tidak sesuai dengan konvensi
     protected $table = 'qr';
 
-    protected $fillable = [
-        'judul',
-        'detail',
-        'foto',
-    ];
+    // Tentukan kolom yang dapat diisi (Mass Assignment)
+    protected $fillable = ['judul', 'detail', 'url'];
 }

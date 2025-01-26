@@ -11,20 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('qr', function (Blueprint $table) {
-            $table->id();
-            $table->string('judul');
-            $table->string('detail');
+        Schema::table('qr', function (Blueprint $table) {
             $table->string('url');
-            $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     */
+    
     public function down(): void
     {
-        Schema::dropIfExists('qr');
+        Schema::table('qr', function (Blueprint $table) {
+            $table->dropColumn('url');
+        });
     }
+    
 };

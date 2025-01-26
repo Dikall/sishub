@@ -44,6 +44,9 @@ class AlumniResource extends Resource
             Forms\Components\TextInput::make('studi_lanjut')
                 ->nullable()
                 ->label('Studi Lanjut/Perguruan Tinggi'),
+            Forms\Components\TextInput::make('program_studi')
+                ->nullable()
+                ->label('Program Studi'),
         ]);
     }
 
@@ -57,6 +60,7 @@ class AlumniResource extends Resource
                 TextColumn::make('kabupaten_bekerja')->label('Kabupaten Bekerja/Wirausaha'),
                 TextColumn::make('nama_perusahaan')->label('Nama Perusahaan/Kantor/Posisi'),
                 TextColumn::make('studi_lanjut')->label('Studi Lanjut/Perguruan Tinggi'),
+                TextColumn::make('program_studi')->label('Program Studi'),
             ])
             ->filters([])
             ->actions([
