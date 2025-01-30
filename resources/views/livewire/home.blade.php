@@ -26,16 +26,17 @@
         </div>
     </div>
     
+    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-20" id="carouselDots">
+        @foreach($photos as $index => $photo)
+        <button 
+            data-index="{{ $index }}"
+            class="w-2 h-2 rounded-full transition-all duration-300 carousel-dot {{ $index === $activeIndex ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/75' }}"
+            aria-label="Go to slide {{ $index + 1 }}"
+        ></button>
+        @endforeach
+    </div>
+    
     <div class="absolute left-4 bottom-0 flex flex-row gap-4 transform -translate-y-1/2 z-50">
-        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-20" id="carouselDots">
-            @foreach($photos as $index => $photo)
-            <button 
-                data-index="{{ $index }}"
-                class="w-2 h-2 rounded-full transition-all duration-300 carousel-dot {{ $index === $activeIndex ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/75' }}"
-                aria-label="Go to slide {{ $index + 1 }}"
-            ></button>
-            @endforeach
-        </div>
         <button 
             id="prevButton"
             class="bg-white/70 hover:bg-white/50 text-black hover:text-slate-500 px-4 py-2 rounded-3xl z-20 backdrop-blur-md border border-slate-200 transition-colors"

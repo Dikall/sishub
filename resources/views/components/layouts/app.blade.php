@@ -35,16 +35,23 @@
 </head>
 <body>
     <video src="/storage/video-bg.mp4" autoplay muted loop class="fixed top-0 left-0 min-w-full min-h-full z-0"></video>
+    
     <div class="flex flex-col items-center justify-center h-screen w-screen overflow-hidden">
-        <x-header class="fixed top-0"/>
-        
+        <!-- Prevent Livewire from re-rendering header -->
+        <div wire:ignore wire:key="header" class="w-full h-20 z-90 sticky top-0">
+            <x-header class="fixed top-0 w-full h-20 z-90 sticky top-0"/>
+        </div>
+
         <div class="flex flex-col items-center justify-center w-full h-full z-10">
-            <div class="w-full h-full px-4">
+            <div class="w-full h-full px-4" wire:key="main-content">
               {{ $slot }}
             </div>
         </div>
 
-        <x-nav-bar class="fixed bottom-0 z-90"/>
+        <!-- Prevent Livewire from re-rendering navbar -->
+        <div wire:ignore wire:key="navbar">
+            <x-nav-bar class="fixed bottom-0 z-90"/>
+        </div>
     </div>
 
     <!-- Scripts -->
