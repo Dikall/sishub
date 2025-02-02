@@ -42,8 +42,8 @@
             <x-header class="fixed top-0 w-full h-20 z-90 sticky top-0"/>
         </div>
 
-        <div class="flex flex-col items-center justify-center w-full h-full z-10">
-            <div class="w-full h-full px-4" wire:key="main-content">
+        <div class="flex flex-col items-center justify-center w-screen h-full z-10">
+            <div class="w-screen h-full" wire:key="main-content">
               {{ $slot }}
             </div>
         </div>
