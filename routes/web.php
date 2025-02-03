@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Livewire\livewire;
 use App\Models\Alumni;
 use App\Models\Ormawa;
 use App\Http\Controllers\QrController;
@@ -31,9 +32,9 @@ Route::get('/alumni-kita', function () {
     return view('alumni', compact('alumni'));
 });
 
-Route::get('/hmsi', function () {
-    $ormawa = Ormawa::all();
-    return view('ormawa', compact('ormawa'));
-});
+// Route::get('/hmsi', function () {
+//     $ormawa = Ormawa::all();
+//     return view('ormawa', compact('ormawa'));
+// });
 
 Route::get('/qr/{id}', [QrController::class, 'show'])->name('qr.show');
