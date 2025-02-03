@@ -16,8 +16,16 @@
             Profil Dosen dan Tenaga Akademik        
         </button>
         <div class="{{ !$showInformasiJurusan ? '' : 'hidden' }}">
-            <button class="carousel-up-btn w-12 h-12 bg-slate-200 hover:bg-slate-300 text-slate-800 px-3 py-1 rounded-full">↑</button>
-            <button class="carousel-down-btn w-12 h-12 bg-slate-200 hover:bg-slate-300 text-slate-800 px-3 py-1 rounded-full">↓</button>
+            <button class="carousel-up-btn w-12 h-12 bg-slate-200 hover:bg-slate-300 text-slate-800 px-3 py-1 rounded-full">
+                <svg class="w-6 h-6 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m16 17-4-4-4 4m8-6-4-4-4 4"/>
+                </svg>                  
+            </button>
+            <button class="carousel-down-btn w-12 h-12 bg-slate-200 hover:bg-slate-300 text-slate-800 px-3 py-1 rounded-full">
+                <svg class="w-6 h-6 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 7 4 4 4-4m-8 6 4 4 4-4"/>
+                </svg>                  
+            </button>
         </div>
     </div>
 
@@ -211,7 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const updateCarousel = (animate = true) => {
         const translateY = -currentIndex * itemHeight;
-        carouselInner.style.transition = animate ? 'transform 0.3s ease' : 'none';
+        carouselInner.style.transition = animate ? 'transform 0.2s' : 'none';
         carouselInner.style.transform = `translateY(${translateY}px)`;
     };
 
